@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title_head %}
+<title>Modificar Paleta</title>
+{% endblock title_head %}
+
+
+{% block h1_header %}
+<h1>Modificando Paleta</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<form action={% url 'inicio:modificar_paleta' paleta.id %} method="post">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    <button>Modificar</button>
+</form>
+
+{% endblock contenido %}

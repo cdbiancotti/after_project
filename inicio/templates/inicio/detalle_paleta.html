@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block title_head %}
+<title>Paleta</title>
+{% endblock title_head %}
+
+
+{% block h1_header %}
+<h1>Paleta: {{paleta}}</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<ul>
+    <li>Modelo: {{paleta.modelo}}</li>
+    <li>Marca: {{paleta.marca}}</li>
+    <li>Descripcion: {{paleta.descripcion}}</li>
+    <li>Stock: {{paleta.stock}}</li>
+    <li>Fecha de carga: {{paleta.fecha_de_carga}}</li>
+</ul>
+<a href={% url 'inicio:modificar_paleta' paleta.id %}>Modificar</a> . <a href={% url 'inicio:eliminar_paleta' paleta.id %}>Eliminar</a>
+
+{% endblock contenido %}
