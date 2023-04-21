@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView 
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from inicio.models import Paleta
 
@@ -29,14 +30,14 @@ class PaletaCreateView(CreateView):
     success_url = '/paletas/'
 
 
-class PaletaUpdateView(UpdateView):
+class PaletaUpdateView(LoginRequiredMixin, UpdateView):
     model = Paleta
     template_name = "inicio/modificar_paleta.html"
     fields = ['modelo','marca','descripcion','stock','fecha_de_carga']
     success_url = '/paletas/'
 
 
-class PaletaDeleteView(DeleteView):
+class PaletaDeleteView(LoginRequiredMixin, DeleteView):
     model = Paleta
     template_name = "inicio/eliminar_paleta.html"
     success_url = '/paletas/'

@@ -15,6 +15,7 @@
 <form action={% url 'inicio:crear_paleta' %} method="post">
     {% csrf_token %}
     <table>
+        {{form.media}}
         {{form}}
     </table>
     <button>Crear</button>
